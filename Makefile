@@ -5,6 +5,7 @@ STRIP = $(STANDALONE_TOOLCHAIN)/arm-linux-androideabi-strip
 
 CPPFLAGS = -std=c++11 -O3 -Wall
 LDFLAGS = -pthread -static
+INCLUDES = -I$(PWD)/../include
 
 TMPDIR = /data/local/tmp
 TARGET ?= droidhammer
@@ -13,6 +14,7 @@ all: $(TARGET)
 
 droidhammer: main.o
 	$(CPP) $(CPPFLAGS) -o $@ $^ $(LDFLAGS)
+	$(STRIP) $@
 
 %.o: %.cc
 	$(CPP) $(CPPFLAGS) $(INCLUDES) -c -o $@ $<
