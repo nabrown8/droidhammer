@@ -1,6 +1,7 @@
-STANDALONE_TOOLCHAIN ?= C:\Users\Noah\Downloads\android-ndk-r26b-windows\android-ndk-r26b\toolchains\llvm\prebuilt\windows-x86_64\bin
+STANDALONE_TOOLCHAIN ?= $(HOME)/android-ndk-r11c/sysroot-arm/bin
 
-CPP = $(STANDALONE_TOOLCHAIN)/armv7a-linux-androideabi21-clang++
+CPP   = $(STANDALONE_TOOLCHAIN)/arm-linux-androideabi-g++
+STRIP = $(STANDALONE_TOOLCHAIN)/arm-linux-androideabi-strip
 
 CPPFLAGS = -std=c++11 -O3 -Wall
 LDFLAGS = -pthread -static
